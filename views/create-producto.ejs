@@ -1,0 +1,35 @@
+<%-include("template/header")%>
+    <%-include("template/side-bar")%>
+    <%-include("template/nav-bar")%>
+    <div class="dashboard-content px-3 pt-4 ">
+
+                  <!-- Fomulario -->
+                  <!-- <button class="btn">AGREGAR PRODUCTO</button> -->
+                    <form action="/saveproduc" method="post" >
+                      <div class="mb-3">
+                        <label for="nomProducto" class="form-label">Nombre Producto</label>
+                        <input type="text" class="form-control" id="nomProducto"name="nomProducto" placeholder="Producto">
+                      </div>
+                      <div class="mb-3">
+                        <label for="canProducto"class="fom-label">Cantidad Producto</label>
+                        <input type="number" class="form-control" id="canProducto" name="canProducto"placeholder="0">
+                      </div>
+                      <div class="mb-3">
+                        <label for="stock" class="fom-label">Stock</label>
+                        <input type="number" class="form-control" id="stock" name="stock" placeholder="0">
+                      </div>
+                      <div class="mb-3">
+                        <label for="precio" class="fom-label">Precio</label>
+                        <input type="number" class="form-control" id="precio" name="precio" placeholder="$0.00">
+                      </div>
+                      <div class="mb-3">
+                        <label for="lote" class="fom-label">lote</label>
+                        <input type="number" class="form-control" id="lote" name="lote" placeholder="0">
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">GUARDAR</button>
+                    </form>
+
+          <!-- Cierre Modal Agregar Cliente-->
+    </div>
+<%-include("template/footer")%>

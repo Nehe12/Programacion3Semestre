@@ -1,0 +1,41 @@
+<%-include("template/header")%>
+    <%-include("template/side-bar")%>
+    <%-include("template/nav-bar")%>
+        
+    <div class="dashboard-content px-3 pt-4 ">
+            <label for="" class="form-label btn ">EDITAR CLIENTE</label>
+                <%console.log(clients)  %>
+                <% if (clients) {%>
+                <!-- Fomulario -->
+                    <form action="/update" method="post">
+                    <input id="id" name="id" value="<%=clients.id_cliente%>" hidden>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre"name="nombre" value="<%=clients.nombre%>" placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido" class="fom-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" value="<%=clients.apellido%>" placeholder="Apellido">
+                    </div>  
+                    <div class="mb-3">
+                        <label for="telefono" class="fom-label">Telefono</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" value="<%=clients.telefono%>" placeholder="0000000000">
+                    </div>  
+                    <div class="mb-3">
+                        <label for="ciudad" class="fom-label">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad" name="ciudad" value="<%=clients.ciudad%>" placeholder="Ciudad">
+                    </div>  
+                    <div class="mb-3">
+                        <label for="calle" class="fom-label">Calle</label>
+                        <input type="text" class="form-control" id="calle" name="calle" value="<%=clients.calle%>" placeholder="Calle">
+                    </div>  
+                    <div class="mb-3">
+                        <label for="NumeroCasa" class="fom-label">Numero Casa</label>
+                        <input type="number" class="form-control" id="NumeroCasa" name="NumeroCasa" value="<%=clients.numero_casa%>" placeholder="25">
+                    </div> 
+                    <button type="submit" class="btn btn-primary">GUARDAR</button> 
+                    </form>
+                    <%}%>
+              
+    </div>
+<%-include("template/footer")%>

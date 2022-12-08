@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
+
+*{
+    font-family: 'Fira Sans Condensed', sans-serif;
+    margin: 0;
+    padding:0 ;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+  } 
+:root{
+    --body-color:#c3d7e4;
+    --sidebar-color:#fff;
+    --primary-color:#695cfe;
+    --primary-color-light:#f6f5ff;
+    --toggle-color:#DDD;
+    --text-color:#707070;
+
+    --tran-03:all 0.2s ease;
+    --tran-03:all 0.3s ease;
+    --tran-04:all 0.4s ease;
+    --tran-05:all 0.5s ease;
+}
+body{
+    
+    background-color: var(--body-color);
+}
+/*Login*/
+body >.login{
+    background: rgb(0,212,255);
+    background: linear-gradient(100deg, rgba(0,212,255,1) 0%,
+     rgba(121,9,94,0.4962359943977591) 48%, rgba(2,0,36,1) 100%)
+}
+.bg{
+    background-image: url("/img/logo.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+.logo-login{
+    margin: 0 auto;
+    height: 30px;
+    width: 30px;
+}
+.container-login{
+    padding-bottom: 20px !important;
+}
+.sombra{
+	-webkit-box-shadow: 0px 5px 15px 4px rgba(112,112,112,0.54);
+	-moz-box-shadow: 0px 5px 15px 4px rgba(112,112,112,0.54);
+	box-shadow: 0px 5px 15px 4px rgba(112,112,112,0.54);
+	background-color: var(--blanco);
+	padding: 1.5rem;
+	border-radius: .5rem;
+	
+}
+.sombra-nav{
+    -webkit-box-shadow: 0px 5px 15px 4px rgba(112,112,112,0.54);
+	-moz-box-shadow: 0px 5px 15px 4px rgba(112,112,112,0.54);
+	box-shadow: 0px 5px 15px 4px rgba(112,112,112,0.54);
+	background-color: var(--blanco);
+		
+}
+.logo{
+    margin: 0 auto;
+    height: 20px;
+    width: 20px;
+}
+li a:hover{
+    color: yellowgreen !important;
+}
+#side_nav{
+    background:black;
+    min-width: 250px;
+    max-width: 250px;
+    transition: var(--tran-03);
+}
+.navbar{
+    border-radius: 4px;
+}
+
+.content{
+    min-height: 100vh;
+    width: 100%;
+}
+hr .h-color{
+    color:#DDD;
+    padding: 8px;
+}
+
+.sidebar li.active{
+    background: #eee;
+    border-radius: 8px;
+}
+
+.sidebar li.active a{
+    color: #000;
+}
+.sidebar li a{
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    #side_nav{
+        margin-left: -250px;
+        position: fixed;
+        min-height: 100vh;
+        z-index: 1;
+    }
+    #side_nav.active{
+        margin-left: 0;
+    }
+}
+
+.table .table{
+    border-radius: 9px;
+}
+a{
+    text-decoration: none;
+}
+.card{
+    border-radius: 10px;
+    
+}
+.card-header{
+    background: rgb(255,115,0);
+background: linear-gradient(100deg, rgba(255,115,0,1) 0%, rgba(247,228,5,0.8407738095238095) 48%, rgba(218,179,17,1) 100%);
+}
+
+/*-------------V----E---N---T---A---S-----------------*/
+.carrusel{
+    height: 20%;
+    width: 60%;
+}

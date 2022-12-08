@@ -1,0 +1,107 @@
+<%-include("template/header")%>
+    <%-include("template/side-bar")%>
+    <%-include("template/nav-bar")%>
+    
+    <div class="dashboard-content px-3 pt-4 ">
+      <div class="card">
+        <div class="table-responsive">
+      <button type="button" class="btn btn-warning px-3 " data-bs-toggle="modal" data-bs-target="#agregarCliente">
+        <i class="bi bi-person-fill-add"></i>Agregar Cliente
+      </button>
+        
+        <table class="table table-striped table-hover sombra ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>TELEFONO</th>
+                    <th>CIUDAD</th>
+                    <th>CALLE</th>
+                    <th>CASA</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <% results.forEach((user)=>{ %>
+                <tr>
+                    <td><%= user.id_cliente %></td>
+                    <td><%= user.nombre %></td>
+                    <td><%= user.apellido %></td>
+                    <td><%= user.telefono %></td>
+                    <td><%= user.ciudad %></td>
+                    <td><%= user.calle %></td>
+                    <td><%= user.numero_casa %></td>
+                    <td>
+                        <div class="text-center">
+                            <div class="btn-group btnDelete">
+                                <button class="btn btn-danger btnDelete" value="<%= user.id_cliente %>">
+                                  <a href="/delete/<%= user.id_cliente %>">
+                                    <i class="bi bi-trash3-fill"></i>
+                                  </a>
+                                </button>
+                                <button class="btn btn-warning btnEditar"  > 
+                                  <a href="/edit-cliente/<%= user.id_cliente %>"  >
+                                <i class="bi bi-pencil-square"></i>  
+                                </a>
+                                </button>
+                            </div>
+                        </div>
+                      </td>
+                </tr>
+               <% }) %>
+            </tbody>
+        </table>
+
+        <!-- Modal Agregar Cliente-->
+          <div class="modal fade mt-5" id="agregarCliente" tabindex="-1" aria-labelledby="editarClienteLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="agregarClienteLabel">Agregar Cliente</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Fomulario -->
+                    <form action="/save" method="post">
+                      <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre"name="nombre"placeholder="Nombre">
+                      </div>
+                      <div class="mb-3">
+                        <label for="apellido" class="fom-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido"placeholder="Apellido">
+                      </div>  
+                      <div class="mb-3">
+                        <label for="telefono" class="fom-label">Telefono</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="0000000000">
+                      </div>  
+                      <div class="mb-3">
+                        <label for="ciudad" class="fom-label">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad">
+                      </div>  
+                      <div class="mb-3">
+                        <label for="calle" class="fom-label">Calle</label>
+                        <input type="text" class="form-control" id="calle" name="calle" placeholder="Calle">
+                      </div>  
+                      <div class="mb-3">
+                        <label for="NumeroCasa" class="fom-label">Numero Casa</label>
+                        <input type="number" class="form-control" id="NumeroCasa" name="NumeroCasa" placeholder="25">
+                      </div> 
+                      <button type="submit" class="btn btn-primary">GUARDAR</button> 
+                    </form>
+                </div>
+
+              </div>
+            </div>
+          </div><!-- Cierre Modal Agregar Cliente-->
+
+            
+
+          
+      
+    </div>
+      </div>
+  </div>
+
+<%-include("template/footer")%>

@@ -1,0 +1,130 @@
+<%-include("template/header")%>
+
+    
+        <%-include("template/side-bar")%>
+        <%-include("template/nav-bar")%>
+        <div class="dashboard-content px-3 pt-4">
+          <h1 class="m-auto">GRAFICAS</h1>
+          <div class="container rounded">
+            <div class="row">
+            <!-- Grafica 1 -->
+              <div class="col-5  m-auto" >
+                <canvas id="myChart" width="40%" height="40%" ></canvas>
+              </div>
+              <!-- Grafica 2 -->
+                <div class="col-4  m-auto">
+                        <canvas id="myChart2" width="50%" height="50%" ></canvas>
+                </div>           
+            </div>
+            <!-- Tablas -->
+            <div class="row">
+              <div class="col">
+                <table class="table table-striped table-hover">
+                  <thead>
+                      <tr>
+                          <th>NOMBRE</th>
+                          <th>Cantidad Comprada</th>
+                          
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <%tab1.forEach((user)=>{%>
+                      <tr>
+                          <td><%=user.NOMBRE%></td>
+                          <td> <span>$</span> <%=user.TOTAL%> <span>.00</span> </td>
+                      </tr>
+                      <%})%>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col">
+                <table class="table table-striped table-hover">
+                  <thead>
+                      <tr>
+                          <th>NOMBRE</th>
+                          <th>Productos Existentes</th>
+                          
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <%tab2.forEach((user)=>{%>
+                      <tr>
+                          <td><%=user.Nombre%></td>
+                          <td><%=user.Cantidad_Producto%> <span>Unidades</span> </td>
+                      </tr>
+                      <%})%>
+                  </tbody>
+              </table>
+              </div>
+
+            </div>
+           </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Grafica 1 -->
+        <script>
+          const ctx = document.getElementById("myChart");
+          
+                 new Chart(ctx, {
+                         type: 'bar',
+                         data: {
+                           labels: [
+                             <% graf1.forEach((user)=> {  %>
+                             '<%= user.NOMBRE %>',
+                             <%  } )  %>
+                         ],
+                           datasets: [{
+                             label: ' COMPRA POR CLIENTE',
+                             data: [
+                             <% graf1.forEach((user)=> {  %>
+                             <%= user.TOTAL %>,
+                             <%  } )  %>
+                             ],
+                             borderWidth: 1
+                           }]
+                         },
+                         options: {
+                           scales: {
+                               y: {
+                                    beginAtZero: false,
+                                    min:0
+                                  
+                               }
+                           }
+                         }
+                       });
+
+                       /*Grafica 2 */
+            const ctx2 = document.getElementById('myChart2');
+          
+             new Chart(ctx2, {
+                  type: 'doughnut',
+                  data: {
+                    labels: [
+                      <% graf2.forEach((user)=> {  %>
+                      '<%= user.Nombre %>',
+                      <%  } )  %>
+                  ],
+                    datasets: [{
+                      label: ' Cantidad por Producto',
+                      data: [
+                      <% graf2.forEach((user)=> {  %>
+                      <%= user.Cantidad_Producto %>,
+                      <%  } )  %>
+                      ],
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    scales: {
+                       y: {
+                         beginAtZero: false,
+                        
+                       }
+                    }
+                  }
+                });
+           </script> 
+
+               <!-- Grafica 2 -->
+        
+<%-include("template/footer")%>
